@@ -12,13 +12,17 @@
 package com.robin.lazy.sms;
 
 /**
- * <一句话功能简述>
- * <功能详细描述>
+ * 默认的短信过滤器
  *
  * @author 江钰锋 00501
  * @version [版本号, 16/6/2]
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class DefaultSmsFilter {
+public class DefaultSmsFilter implements SmsFilter{
+
+    @Override
+    public String filter(String address, String smsContent) {
+        return smsContent;
+    }
 }

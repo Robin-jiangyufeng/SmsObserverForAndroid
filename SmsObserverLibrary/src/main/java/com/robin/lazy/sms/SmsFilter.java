@@ -19,5 +19,13 @@ package com.robin.lazy.sms;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class SmsFilter {
+public interface SmsFilter {
+
+    /***
+     * 过滤方法
+     * @param address 发信人
+     * @param smsContent 短信内容
+     * @return 过滤处理后的短信信息
+     */
+    String filter(String address,String smsContent);
 }
