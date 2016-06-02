@@ -34,7 +34,7 @@ public class CerificationCodeSmsFilter implements SmsFilter {
 
     @Override
     public String filter(String address, String smsContent) {
-        if (!address.startsWith(filterAddress)) {
+        if (address.startsWith(filterAddress)) {
             Pattern pattern = Pattern.compile("(\\d{4,8})");//匹配4-8位的数字
             Matcher matcher = pattern.matcher(smsContent);
             if (matcher.find()) {

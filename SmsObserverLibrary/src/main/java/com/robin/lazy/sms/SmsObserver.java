@@ -75,11 +75,10 @@ public class SmsObserver extends ContentObserver {
     @Override
     public void onChange(boolean selfChange, Uri uri) {
         super.onChange(selfChange, uri);
-        String code = "";
         if (uri.toString().equals("content://sms/raw")) {
             return;
         }
-        Uri inboxUri = Uri.parse("content://sms/inbox");
+        Uri inboxUri = Uri.parse("content://sms/inbox");//收件箱
         try {
             Cursor c = mContext.getContentResolver().query(inboxUri, null, null,
                     null, "date desc");
@@ -88,7 +87,7 @@ public class SmsObserver extends ContentObserver {
                     String address = c.getString(c.getColumnIndex("address"));
                     String body = c.getString(c.getColumnIndex("body"));
                     if (mHandler != null) {
-                        mHandler.obtainMessage(MSG_RECEIVED_CODE, new String[]{address, code})
+                        mHandler.obtainMessage(MSG_RECEIVED_CODE, new String[]{address, body})
                                 .sendToTarget();
                     }
                     Log.i(getClass().getName(), "发件人为：" + address + " " + "短信内容为：" + body);
