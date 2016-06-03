@@ -22,13 +22,13 @@ import java.util.regex.Pattern;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class CerificationCodeSmsFilter implements SmsFilter {
+public class VerificationCodeSmsFilter implements SmsFilter {
     /**
      * 需要过滤的发短信的人
      */
     private String filterAddress;
 
-    public CerificationCodeSmsFilter(String filterAddress) {
+    public VerificationCodeSmsFilter(String filterAddress) {
         this.filterAddress = filterAddress;
     }
 

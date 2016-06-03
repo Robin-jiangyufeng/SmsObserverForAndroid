@@ -21,6 +21,12 @@ public class SmsObserver extends ContentObserver {
     public static final int MSG_RECEIVED_CODE = 1001;
     private SmsHandler mHandler;
 
+    /***
+     * 构造器
+     * @param context
+     * @param callback 短信接收器
+     * @param smsFilter 短信过滤器
+     */
     public SmsObserver(Activity context, SmsResponseCallback callback,SmsFilter smsFilter) {
         this(new SmsHandler(callback,smsFilter));
         this.mContext = context;
