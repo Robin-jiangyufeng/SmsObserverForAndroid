@@ -1,12 +1,12 @@
 package com.robin.lazy.sample;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.robin.lazy.sms.CerificationCodeSmsFilter;
 import com.robin.lazy.sms.SmsObserver;
 import com.robin.lazy.sms.SmsResponseCallback;
+import com.robin.lazy.sms.VerificationCodeSmsFilter;
 
 public class MainActivity extends AppCompatActivity implements SmsResponseCallback{
 
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements SmsResponseCallba
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        smsObserver=new SmsObserver(this,this,new CerificationCodeSmsFilter("180"));
+        smsObserver=new SmsObserver(this,this,new VerificationCodeSmsFilter("180"));
         smsObserver.registerSMSObserver();
         textView=(TextView)findViewById(R.id.textView);
     }
