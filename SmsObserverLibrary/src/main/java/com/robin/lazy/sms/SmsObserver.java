@@ -71,7 +71,6 @@ public class SmsObserver extends ContentObserver {
     public void unregisterSMSObserver() {
         if (mContext != null) {
             mContext.getContentResolver().unregisterContentObserver(this);
-            ;
         }
         if (mHandler != null) {
             mHandler = null;
